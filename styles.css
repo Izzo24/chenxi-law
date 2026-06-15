@@ -1,0 +1,127 @@
+/* ============================================
+   臣璽律師事務所 — 全站共用樣式
+   設計：墨黑 × 米白紙感 × 黛綠 × 暖金
+   ============================================ */
+:root{
+  --ink:#16170f;
+  --ink-soft:#2a2b20;
+  --paper:#f4f1e9;
+  --paper-deep:#e9e4d6;
+  --paper-card:#fbf9f3;
+  --jade:#3d5343;
+  --jade-light:#5a7060;
+  --gold:#9a7b3f;
+  --gold-light:#c2a366;
+  --line:rgba(22,23,15,.14);
+  --line-soft:rgba(22,23,15,.08);
+  --muted:#5c5a4f;
+  --muted-light:#807d70;
+  --shadow:0 18px 50px -24px rgba(22,23,15,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.75;
+}
+.serif{font-family:"Noto Serif TC","Songti TC",serif}
+a{color:inherit}
+img{display:block;max-width:100%}
+
+/* layout */
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+section{position:relative}
+
+/* ---------- header ---------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px clamp(20px,5vw,56px);
+  transition:background .35s, padding .35s, box-shadow .35s;
+}
+.site-header.solid{
+  background:rgba(244,241,233,.92);
+  backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 var(--line-soft);
+  padding:14px clamp(20px,5vw,56px);
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--paper);transition:color .35s}
+.site-header.solid .brand{color:var(--ink)}
+
+.site-header.solid .brand .mark{font-family:"Noto Serif TC",serif;font-size:24px;font-weight:600;letter-spacing:.08em}
+.brand .en{font-size:10.5px;letter-spacing:.34em;opacity:.7;text-transform:uppercase}
+/* SVG brand mark + text */
+.brand-texts{display:flex;flex-direction:column;gap:3px}
+.brand-cn{font-family:"Noto Serif TC","PingFang TC",serif;font-size:15px;font-weight:600;letter-spacing:.07em;line-height:1}
+.brand-en{font-size:9px;letter-spacing:.26em;opacity:.75;text-transform:uppercase;font-family:Georgia,serif;line-height:1}
+.nav{display:flex;gap:32px;align-items:center}
+.nav a{text-decoration:none;font-size:14.5px;letter-spacing:.04em;color:var(--paper);opacity:.85;transition:opacity .25s,color .35s}
+.site-header.solid .nav a{color:var(--ink)}
+.nav a:hover{opacity:1}
+.nav a.active{opacity:1;font-weight:500}
+.nav-cta{border:1px solid currentColor;padding:8px 18px;border-radius:1px;opacity:1!important;transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--paper)!important}
+.menu-btn{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:inherit}
+
+/* mobile nav */
+.mobile-nav{
+  position:fixed;inset:0;z-index:99;background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  opacity:0;pointer-events:none;transition:opacity .35s;
+}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{color:var(--paper);text-decoration:none;font-size:22px;font-family:"Noto Serif TC",serif;padding:14px;letter-spacing:.08em}
+.mobile-nav .close{position:absolute;top:24px;right:28px;font-size:30px;color:var(--paper);background:none;border:none;cursor:pointer}
+
+/* ---------- page hero (inner pages) ---------- */
+.page-hero{
+  padding:170px 0 70px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;
+}
+.page-hero .eyebrow{color:var(--gold-light)}
+.page-hero h1{font-family:"Noto Serif TC",serif;font-size:clamp(33px,5vw,52px);font-weight:600;letter-spacing:.03em;margin-top:18px;line-height:1.25}
+.page-hero p{color:rgba(244,241,233,.8);margin-top:18px;max-width:560px;font-weight:300}
+.page-hero .deco{position:absolute;right:-60px;bottom:-60px;width:340px;height:340px;border:1px solid rgba(154,123,63,.25);border-radius:50%}
+.page-hero .deco::after{content:"";position:absolute;inset:40px;border:1px solid rgba(154,123,63,.18);border-radius:50%}
+
+/* shared bits */
+.eyebrow{display:flex;align-items:center;gap:13px;font-size:13px;letter-spacing:.28em;color:var(--gold)}
+.eyebrow .rule{width:42px;height:1px;background:currentColor;flex-shrink:0}
+.section-title{font-family:"Noto Serif TC",serif;font-size:clamp(27px,3.6vw,40px);font-weight:600;letter-spacing:.02em;line-height:1.3;margin-top:16px}
+.lead{color:var(--muted);font-size:16.5px;font-weight:300;max-width:620px;margin-top:18px}
+
+.btn-primary{
+  display:inline-block;background:var(--ink);color:var(--paper);
+  padding:14px 30px;text-decoration:none;font-size:15px;letter-spacing:.05em;
+  border-radius:1px;font-weight:500;transition:background .25s,transform .25s;border:none;cursor:pointer;
+}
+.btn-primary:hover{background:var(--gold);transform:translateY(-2px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none;
+  font-size:15px;letter-spacing:.04em;border-bottom:1px solid var(--gold);padding-bottom:3px;transition:gap .25s;
+}
+.btn-ghost:hover{gap:14px}
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--ink);color:var(--paper);padding:64px 0 30px;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(244,241,233,.12)}
+.footer-brand .mark{font-family:"Noto Serif TC",serif;font-size:26px;font-weight:600;letter-spacing:.08em}
+.footer-brand p{color:rgba(244,241,233,.6);font-size:14px;margin-top:16px;font-weight:300;max-width:300px}
+.footer-col h4{font-size:13px;letter-spacing:.2em;color:var(--gold-light);margin-bottom:18px;font-weight:500}
+.footer-col a,.footer-col p{display:block;color:rgba(244,241,233,.75);text-decoration:none;font-size:14.5px;margin-bottom:11px;font-weight:300;transition:color .2s}
+.footer-col a:hover{color:var(--paper)}
+.footer-bottom{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:rgba(244,241,233,.45)}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* responsive */
+@media(max-width:860px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+}
